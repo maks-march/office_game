@@ -9,6 +9,7 @@ public class RestartScene : MonoBehaviour
 
     private void ChangeSceneByName(SceneNames name)
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(name.ToString());
     }
 }

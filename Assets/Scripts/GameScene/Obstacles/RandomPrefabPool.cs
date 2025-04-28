@@ -21,7 +21,6 @@ public class RandomPrefabPool : MonoBehaviour
     {
         foreach (var item in _poolItems)
         {
-            Debug.Log(item.InitialSize);
             for (int i = 0; i < item.InitialSize; i++)
             {
                 GameObject instance = Instantiate(item.prefab, transform);
@@ -37,7 +36,7 @@ public class RandomPrefabPool : MonoBehaviour
     {
         if (_objectPool.Count == 0) return null;
 
-        int index = Random.Range(0, _objectPool.Count-1);
+        int index = Random.Range(0, _objectPool.Count);
         int active_amount = 0;
 
         while (_objectPool[index].activeInHierarchy && active_amount < _objectPool.Count)

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 642785764622474195}
   - component: {fileID: 8302987020702088321}
+  - component: {fileID: 6873983707215638793}
   m_Layer: 3
   m_Name: FailCollider
-  m_TagString: Untagged
+  m_TagString: LosingArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.026176453, y: -0.37081409}
+  m_Offset: {x: -4.3379207, y: -3.5213451}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,8 +76,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.177124, y: 10.815659}
+  m_Size: {x: 1.9554806, y: 4.514597}
   m_EdgeRadius: 0
+--- !u!114 &6873983707215638793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393851873806749244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86ef3309c04a31a4f884b8e73f4bd147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726374521173987571
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.950341, y: -0.48484612}
+  m_Offset: {x: -6.599362, y: -0.48484612}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -152,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8033671, y: 10.350353}
+  m_Size: {x: 5.101409, y: 10.350353}
   m_EdgeRadius: 0
 --- !u!1 &2303141030317652507
 GameObject:
@@ -168,7 +181,7 @@ GameObject:
   - component: {fileID: 8972183858793946195}
   m_Layer: 3
   m_Name: Obstacle3
-  m_TagString: Ostacle
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +287,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07845807, y: -0.34993172}
+  m_Offset: {x: 0.14534366, y: -2.4984117}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -285,7 +298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.500769, y: 10.830137}
+  m_Size: {x: 8.053165, y: 6.5331774}
   m_EdgeRadius: 0
 --- !u!50 &8972183858793946195
 Rigidbody2D:

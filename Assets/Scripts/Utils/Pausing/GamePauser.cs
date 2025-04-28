@@ -6,6 +6,8 @@ public class GamePauser : MonoBehaviour
 {
     [SerializeField] private TogglePauseEventInvoker _pauseEventInvoker;
 
+    public void TogglePause() => TogglePause(); 
+
     private void OnEnable()
     {
         _pauseEventInvoker.TogglePauseEvent += TogglePause;

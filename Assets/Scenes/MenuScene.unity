@@ -466,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2436463952039224918, guid: 43e33e7260679634e9ce4335af91f9e4, type: 3}
+      propertyPath: m_Name
+      value: MenuEventsInvoker
+      objectReference: {fileID: 0}
     - target: {fileID: 2824329775688621734, guid: 43e33e7260679634e9ce4335af91f9e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

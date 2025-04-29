@@ -14,7 +14,7 @@ public class MovingOnEvents : MonoBehaviour
     private Animator _animator;
     private Vector3 _jumpDirection;
     private Vector3 _startPosition;
-    private bool _isJumping;
+    private bool _isFailed;
 
     public void FailTriggered() => PerformFail();
 
@@ -40,17 +40,14 @@ public class MovingOnEvents : MonoBehaviour
 
     private void PerformFail()
     {
-        if (!_isJumping)
-        {
-            _animator.SetTrigger("LoseEvent");
-        }
+        _isFailed = true;
+        _animator.SetTrigger("LoseEvent");
     }
 
     private void PerformJump()
     {
         if (Mathf.Abs(_startPosition.y - transform.position.y) < 0.2)
         {
-            _isJumping = true;
             StartCoroutine(Jump());
         }
     }
@@ -61,6 +58,10 @@ public class MovingOnEvents : MonoBehaviour
         float time = 0f;
         while (time < 1f)
         {
+            if (_isFailed)
+            {
+                break;
+            }
             time += Time.deltaTime / _duration;
             Vector3 pos = Vector3.Lerp(_startPosition, endPosition, time);
             float offset = _curve.Evaluate(time);
@@ -68,6 +69,5 @@ public class MovingOnEvents : MonoBehaviour
             transform.position = pos;
             yield return null;
         }
-        _isJumping = false;
     }
 }

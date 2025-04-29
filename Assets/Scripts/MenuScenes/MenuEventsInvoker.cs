@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MenuButtonsEventInvoker : MonoBehaviour
+public class MenuEventsInvoker : MonoBehaviour
 {
     public event Action<SceneNames> ChangingScene;
 

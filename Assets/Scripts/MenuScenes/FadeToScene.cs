@@ -1,19 +1,18 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FadeOutScript : MonoBehaviour
+public class FadeToScene : MonoBehaviour
 {
-    [SerializeField] private AnimationEventInvoker _eventHandler;
+    [SerializeField] private AnimationEventInvoker _eventInvoker;
 
     private void OnEnable()
     {
-        _eventHandler.AnimationEnds += LoadMenuScene;
+        _eventInvoker.AnimationEnds += LoadMenuScene;
     }
 
     private void OnDisable()
     {
-        _eventHandler.AnimationEnds -= LoadMenuScene;
+        _eventInvoker.AnimationEnds -= LoadMenuScene;
     }
 
     private void LoadMenuScene()

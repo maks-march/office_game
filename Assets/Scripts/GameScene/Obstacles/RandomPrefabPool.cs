@@ -28,6 +28,7 @@ public class RandomPrefabPool : MonoBehaviour
                 _objectPool.Add(instance);
             }
         }
+        _objectPool.Add(new GameObject("Empty"));
     }
 
     public GameObject GetRandomObject() => GetObject();
@@ -37,16 +38,15 @@ public class RandomPrefabPool : MonoBehaviour
         if (_objectPool.Count == 0) return null;
 
         int index = Random.Range(0, _objectPool.Count);
-        int active_amount = 0;
-
-        while (_objectPool[index].activeInHierarchy && active_amount < _objectPool.Count)
+        if (_objectPool[index].activeInHierarchy)
         {
-            index = Random.Range(0, _objectPool.Count - 1);
-            active_amount += 1;
+            index = 0;
         }
-
-        if (active_amount == _objectPool.Count) return null;
-
+        while (_objectPool[index].activeInHierarchy && index < _objectPool.Count - 1)
+        {
+            index += 1;
+        }
+        Debug.Log(index);
         _objectPool[index].SetActive(true);
         return _objectPool[index];
     }

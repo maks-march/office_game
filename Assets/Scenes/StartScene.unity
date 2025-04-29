@@ -275,6 +275,10 @@ PrefabInstance:
       propertyPath: _eventHandler
       value: 
       objectReference: {fileID: 2132374534}
+    - target: {fileID: 3053862920165724491, guid: 0328768b61b469542b2ff9bf2807d2a4, type: 3}
+      propertyPath: _eventInvoker
+      value: 
+      objectReference: {fileID: 2132374534}
     - target: {fileID: 7049516030666661968, guid: 0328768b61b469542b2ff9bf2807d2a4, type: 3}
       propertyPath: m_Name
       value: Fadeout Canvas
@@ -363,7 +367,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2351649168160262443, guid: 0328768b61b469542b2ff9bf2807d2a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

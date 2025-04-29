@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuSceneChanger : MonoBehaviour
 {
-    [SerializeField] private MenuButtonsEventInvoker _eventHandler;
+    [SerializeField] private MenuEventsInvoker _eventHandler;
 
     private void OnEnable()
     {

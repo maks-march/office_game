@@ -46,7 +46,6 @@ public class RandomPrefabPool : MonoBehaviour
         {
             index += 1;
         }
-        Debug.Log(index);
         _objectPool[index].SetActive(true);
         return _objectPool[index];
     }

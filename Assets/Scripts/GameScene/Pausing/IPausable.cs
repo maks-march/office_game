@@ -1,4 +1,4 @@
-﻿namespace GameScene.Pausing
+﻿namespace Pausing
 {
     public interface IPausable
     {

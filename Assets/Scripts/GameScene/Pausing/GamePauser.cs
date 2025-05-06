@@ -1,6 +1,7 @@
 using UnityEngine;
 
-namespace GameScene.Pausing
+
+namespace Pausing
 {
     public class GamePauser : IPausable
     {

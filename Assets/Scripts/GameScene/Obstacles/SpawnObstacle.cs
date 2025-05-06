@@ -1,44 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class SpawnObstacle : MonoBehaviour
+
+namespace GameScene
 {
-    private RandomPrefabPool _pool;
+    public class SpawnObstacle : MonoBehaviour
+    {
+        private RandomPrefabPool _pool;
 
-    private float _spawnTime;
+        private float _spawnTime;
 
-    public float SpawnTime {
-        get
+        public float SpawnTime
         {
-            return _spawnTime;
-        }
-        set
-        {
-            if (value >= 0)
+            get
             {
-                _spawnTime = value;
+                return _spawnTime;
+            }
+            set
+            {
+                if (value >= 0)
+                {
+                    _spawnTime = value;
+                }
             }
         }
-    }
 
-    private void Start()
-    {
-        _spawnTime = 2f;
-        _pool = GetComponent<RandomPrefabPool>();
-        StartCoroutine(Spawn());
-    }
-    
-    private IEnumerator Spawn()
-    {
-        while (true)
+        private void Start()
         {
-            var instance = _pool.GetRandomObject();
-            instance.SetActive(true);
-            instance.transform.position = transform.position;
-            instance.transform.rotation = transform.rotation;
-            yield return new WaitForSeconds(_spawnTime);
+            _spawnTime = 2f;
+            _pool = GetComponent<RandomPrefabPool>();
+            StartCoroutine(Spawn());
+        }
+
+        private IEnumerator Spawn()
+        {
+            while (true)
+            {
+                var instance = _pool.GetRandomObject();
+                instance.SetActive(true);
+                instance.transform.position = transform.position;
+                instance.transform.rotation = transform.rotation;
+                yield return new WaitForSeconds(_spawnTime);
+            }
         }
     }
 }

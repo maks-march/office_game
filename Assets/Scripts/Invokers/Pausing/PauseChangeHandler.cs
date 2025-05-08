@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using ChangeHandlers;
 using Pausing;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
@@ -12,8 +11,11 @@ namespace Invokers
         private List<IPausable> _pausableElements;
 
         private GamePauser _pauser;
+        private bool _isGameRunning = true;
 
         public GamePauser GetGamePauser {  get => _pauser; }
+
+
         public bool IsPaused { get => Time.timeScale == 0f; }
 
         protected override void Awake()
@@ -38,7 +40,39 @@ namespace Invokers
             return pausable;
         }
 
+        public void StopGame()
+        {
+            _isGameRunning = false;
+            _pauser.TogglePause(true);
+        }
+
+        private void ResumeGame()
+        {
+            _isGameRunning = true;
+        }
+
+        private void Restart(PauseInvoker invoker)
+        {
+            if (invoker.IsGameRestarter)
+            {
+                ResumeGame();
+            }
+        }
+
         protected override void OnEvent(IInvoker invoker)
+        {
+            Restart((PauseInvoker)invoker);
+
+            if (_isGameRunning == false)
+            {
+                return;
+            }
+
+            TogglePausable();
+
+        }
+
+        private void TogglePausable()
         {
             bool newPauseState = IsPaused == false;
 

@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using Invokers;
 using StateChangers;
-using System.Collections.Generic;
 
-namespace ChangeHandlers
+namespace Invokers
 {
     [RequireComponent(typeof(InvokersHandler))]
     public class ChangeHandler : MonoBehaviour

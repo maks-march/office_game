@@ -1,3 +1,4 @@
+using Invokers;
 using System.Collections;
 using UnityEngine;
 
@@ -42,6 +43,8 @@ namespace GameScene
         {
             _isFailed = true;
             _animator.SetTrigger("LoseEvent");
+            gameObject.GetComponent<IInvoker>().Invoke(); // починить сука сделать привязку к state аниматора - разбить на классы
+            // добавить подкат
         }
 
         private void PerformJump()

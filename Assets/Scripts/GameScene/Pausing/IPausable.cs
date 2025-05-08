@@ -2,7 +2,7 @@
 {
     public interface IPausable
     {
-        public void TogglePause(bool pause);
+        public void TogglePause(bool isPaused);
     }
 }
 

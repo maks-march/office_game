@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 642785764622474195}
   - component: {fileID: 8302987020702088321}
-  - component: {fileID: 6873983707215638793}
   m_Layer: 3
   m_Name: FailCollider
   m_TagString: LosingArea
@@ -78,18 +77,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9554806, y: 4.514597}
   m_EdgeRadius: 0
---- !u!114 &6873983707215638793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393851873806749244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86ef3309c04a31a4f884b8e73f4bd147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &726374521173987571
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +251,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2303141030317652507}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 829908d80a2d3d24dafd04eb5cd03ba4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

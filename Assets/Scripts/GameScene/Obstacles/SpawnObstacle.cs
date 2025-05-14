@@ -25,7 +25,7 @@ namespace GameScene
             }
         }
 
-        private void Start()
+        public void StartSpawning()
         {
             _spawnTime = 2f;
             _pool = GetComponent<RandomPrefabPool>();

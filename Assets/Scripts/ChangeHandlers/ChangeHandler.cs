@@ -21,10 +21,16 @@ namespace Invokers
             return GetInvokerHandler<IInvokersHandler>();
         }
 
-        protected virtual void Awake()
+        private void Awake()
         {
             _isSubscribed = false;
             _invokersHandler = GetInvokerHandler();
+            OnAwake();
+        }
+
+        protected virtual void OnAwake() 
+        {
+            
         }
 
         private void OnEnable()

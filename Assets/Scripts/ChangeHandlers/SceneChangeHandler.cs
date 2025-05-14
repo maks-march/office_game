@@ -7,9 +7,8 @@ namespace Invokers
     {
         private SceneChanger GetSceneChanger { get => (SceneChanger)_changer; }
 
-        protected override void Awake()
+        protected override void OnAwake()
         {
-            base.Awake();
             _changer = new SceneChanger();
         }
 

@@ -1,11 +1,12 @@
+using UnityEngine;
+
 namespace Resources
 {
-    public class ConstantsResources
+    public static class ConstantsResources
     {
-        private const float _backgroundSpeed = 1f;
-        private const SceneName _sceneBaseName = SceneName.Null;
-
-        public static float BackGroundSpeed { get => _backgroundSpeed; }
-        public static SceneName SceneBaseName { get => _sceneBaseName; }
+        public const float BackgroundSpeed = 1f;
+        public const SceneName SceneBaseName = SceneName.Null;
+        public const string StartTriggerName = "Start"; 
+        public static LayerMask GroundLayer { get => LayerMask.NameToLayer("Objects"); }
     }
 }

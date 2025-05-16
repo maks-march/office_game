@@ -23,7 +23,7 @@ namespace Invokers
         {
             foreach (var animator in _animators)
             {
-                animator.SetTrigger(ConstantsResources.StartTriggerName);
+                animator.SetTrigger(ConstantResources.StartTriggerName);
             }
             this.enabled = false;
         }

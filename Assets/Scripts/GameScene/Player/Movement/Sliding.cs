@@ -1,14 +1,12 @@
 ﻿using Resources;
 using System.Collections;
-using System.Drawing;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
 namespace GameScene
 {
     [RequireComponent(typeof(Collider2D))]
-    public class Roll : MonoBehaviour, IMovePerformer
+    public class Sliding : MonoBehaviour, IMovePerformer
     {
         [SerializeField] private CapsuleCollider2D _collider;
         [SerializeField] private float _duration = 0.5f;
@@ -17,12 +15,20 @@ namespace GameScene
         private float _baseHeight;
         private bool _isPlaying = false;
 
-        public PlayerState State { get => PlayerState.Roll; }
+        public PlayerState State { get => PlayerState.Sliding; }
+        public bool IsPlaying { get { return _isPlaying; } }
+
+        private void Awake()
+        {
+            _baseOffset = _collider.offset.y;
+            _baseHeight = _collider.size.y;
+        }
 
         public void Stop()
         {
             _isPlaying = false;
             StopCoroutine(Movement());
+            End();
         }
 
         public void PerformMovement()
@@ -35,8 +41,6 @@ namespace GameScene
         }
         private IEnumerator Movement()
         {
-            _baseOffset = _collider.offset.y;
-            _baseHeight = _collider.size.y;
             float newOffset = _baseOffset / 3;
             float newHeight = _baseHeight / 3;
             _collider.offset = new Vector2(_collider.offset.x, newOffset);
@@ -47,10 +51,15 @@ namespace GameScene
                 time += Time.deltaTime / _duration;
                 yield return null;
             }
-            _collider.offset = new Vector2(_collider.offset.x, _baseOffset);
-            _collider.size = new Vector2(_collider.size.x, _baseHeight);
+            End();
 
             _isPlaying = false;
+        }
+
+        private void End()
+        {
+            _collider.offset = new Vector2(_collider.offset.x, _baseOffset);
+            _collider.size = new Vector2(_collider.size.x, _baseHeight);
         }
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GameScene
 {
     [RequireComponent(typeof(Jump))]
-    [RequireComponent(typeof(Roll))]
+    [RequireComponent(typeof(Sliding))]
     public class MovingOnEvents : MonoBehaviour, IStateChanger
     {
         private IEnumerable<IMovePerformer> _movePerformers;
@@ -18,18 +18,21 @@ namespace GameScene
             _movePerformers = GetComponents<IMovePerformer>();
         }
 
-        public void Move(PlayerState currentState)
+        public bool Move(PlayerState currentState)
         {
+            bool isPlaying = false;
             foreach (var performer in _movePerformers)
             {
                 if (currentState == performer.State)
                 {
                     performer.PerformMovement();
+                    isPlaying = performer.IsPlaying;
                 } else
                 {
                     performer.Stop();
                 }
             }
+            return isPlaying;
         }
     }
 }

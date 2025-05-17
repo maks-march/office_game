@@ -31,10 +31,16 @@ namespace Invokers
             {
                 newState = PlayerState.Run;
                 _currentState = newState;
+                _animatorParamsChanger.ChangeParams(newState);
+                return;
             }
-            _animatorParamsChanger.ChangeParams(newState);
 
-            _movingOnEvents.Move(newState);
+            bool started = _movingOnEvents.Move(newState);
+            if (started)
+            {
+                _animatorParamsChanger.ChangeParams(newState);
+            }
+
         }
     }
 }

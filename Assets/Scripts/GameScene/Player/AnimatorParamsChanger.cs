@@ -14,10 +14,12 @@ namespace StateChangers
 
         public void ChangeParams(PlayerState newState)
         {
-            if (newState != PlayerState.Idle)
-            {
-                _animator.SetTrigger(newState.ToString());
-            }
+            _animator.SetTrigger(newState.ToString());
+        }
+
+        public void Reset(PlayerState newState)
+        {
+            _animator.ResetTrigger(newState.ToString());
         }
     }
 }

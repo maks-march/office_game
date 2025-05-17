@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace GameScene
 {
+    [RequireComponent(typeof(JumpCollisionCheck))]
     public class Jump : MonoBehaviour, IMovePerformer
     {
         [SerializeField] private AnimationCurve _curve;
@@ -14,8 +15,15 @@ namespace GameScene
         private Vector3 _jumpDirection = Vector3.up;
         private Vector3 _startPosition;
         private bool _isPlaying = false;
+        private JumpCollisionCheck _check;
 
         public PlayerState State { get => PlayerState.Jump; }
+        public bool IsPlaying { get { return _isPlaying; } }
+
+        private void Awake()
+        {
+            _check = GetComponent<JumpCollisionCheck>();
+        }
 
         public void Stop()
         {
@@ -40,6 +48,10 @@ namespace GameScene
             float time = 0f;
             while (time < 1f)
             {
+                if (_check.IsCollided)
+                {
+                    break;
+                }
                 time += Time.deltaTime / ConstantResources.MoveDuration;
                 Vector3 newPosition = Vector3.Lerp(_startPosition, endPosition, time);
                 float offset = _curve.Evaluate(time);

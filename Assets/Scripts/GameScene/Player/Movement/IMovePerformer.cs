@@ -9,5 +9,6 @@ namespace GameScene
         public void Stop();
 
         public PlayerState State { get; }
+        public bool IsPlaying { get; }
     }
 }

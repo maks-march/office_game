@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3523502775768837039, guid: 1cce0b9a914e86e40a578db4cb91fca2, type: 3}
+  m_Motion: {fileID: 7400000, guid: d2679875a1983eb4ba3c3304d0f24d2e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -99,6 +99,31 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-5629100124232001911
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Jump
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 8600519485643013023}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.2507887
+  m_TransitionOffset: 0
+  m_ExitTime: 0.83644193
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-5158541207934438865
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -108,7 +133,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Roll
+    m_ConditionEvent: Sliding
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7923487398587306191}
@@ -183,7 +208,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Roll
+    m_ConditionEvent: Sliding
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7923487398587306191}
@@ -194,7 +219,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.6428572
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -220,7 +245,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Roll
+  - m_Name: Sliding
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -313,7 +338,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6360464818525051709, guid: 19186077d00867a488e5a0d3f40980b8, type: 3}
+  m_Motion: {fileID: 7400000, guid: 2b61c3fd862fc294eb5027cf77d197ab, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -416,6 +441,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -4377153989433189719}
   - {fileID: -2434835861150407682}
+  - {fileID: -5629100124232001911}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -425,7 +451,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3151065990279434729, guid: 45709d8e15fcdf848b59934dea3708c2, type: 3}
+  m_Motion: {fileID: 7400000, guid: 5e8f756cd29867d45af64b715bdec3dc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -3,11 +3,11 @@
 
 namespace Invokers
 {
-    public class RollInputInvoker : MoveInputInvoker 
+    public class SlidingInputInvoker : MoveInputInvoker 
     {
         protected override void SetupPlayerState()
         {
-            _newPlayerState = PlayerState.Roll;
+            _newPlayerState = PlayerState.Sliding;
         }
 
         private void OnEnable()

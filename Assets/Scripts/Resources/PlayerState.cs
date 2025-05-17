@@ -6,6 +6,6 @@
         Run,
         Fail,
         Jump,
-        Roll
+        Sliding
     }
 }

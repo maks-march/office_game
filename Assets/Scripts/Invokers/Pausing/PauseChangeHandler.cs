@@ -18,10 +18,8 @@ namespace Invokers
 
         public bool IsPaused { get => Time.timeScale == 0f; }
 
-        protected override void Awake()
+        protected override void OnAwake()
         {
-            base.Awake();
-
             _pausableElements = FindAllPausable();
 
             _pauser = new GamePauser();

@@ -6,9 +6,10 @@ namespace GameScene
 {
     public class SpawnObstacle : MonoBehaviour
     {
+        [SerializeField] private float _spawnTime = 2f;
+        [SerializeField] private float _startTime = 0f;
         private RandomPrefabPool _pool;
 
-        private float _spawnTime;
 
         public float SpawnTime
         {
@@ -25,15 +26,15 @@ namespace GameScene
             }
         }
 
-        private void Start()
+        public void StartSpawning()
         {
-            _spawnTime = 2f;
             _pool = GetComponent<RandomPrefabPool>();
             StartCoroutine(Spawn());
         }
 
         private IEnumerator Spawn()
         {
+            yield return new WaitForSeconds(_startTime);
             while (true)
             {
                 var instance = _pool.GetRandomObject();

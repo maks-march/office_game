@@ -1,73 +1,77 @@
+using Invokers;
 using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using TMPro;
 using UnityEngine;
 
-public class MovingOnEvents : MonoBehaviour
+
+namespace GameScene
 {
-    [SerializeField] private AnimationCurve _curve;
-    [SerializeField] private float _duration = 2f;
-    [SerializeField] private float _distance;
-
-    private PlayerActionsInvoker controls;
-    private Animator _animator;
-    private Vector3 _jumpDirection;
-    private Vector3 _startPosition;
-    private bool _isJumping;
-
-    public void FailTriggered() => PerformFail();
-
-    private void Awake()
+    public class MovingOnEvents : MonoBehaviour
     {
-        controls = new PlayerActionsInvoker();
-        _animator = GetComponent<Animator>();
-        _jumpDirection = Vector3.up;
-        _startPosition = transform.position;
-    }
+        [SerializeField] private AnimationCurve _curve;
+        [SerializeField] private float _duration = 2f;
+        [SerializeField] private float _distance;
 
-    private void OnEnable()
-    {
-        controls.Player.Enable();
-        controls.Player.Jump.performed += ctx => PerformJump();
-    }
+        private PlayerActionsInvoker controls;
+        private Animator _animator;
+        private Vector3 _jumpDirection;
+        private Vector3 _startPosition;
+        private bool _isFailed;
 
-    private void OnDisable()
-    {
-        controls.Player.Jump.performed -= ctx => PerformJump();
-        controls.Player.Disable();
-    }
+        public void FailTriggered() => PerformFail();
 
-    private void PerformFail()
-    {
-        if (!_isJumping)
+        private void Awake()
         {
+            controls = new PlayerActionsInvoker();
+            _animator = GetComponent<Animator>();
+            _jumpDirection = Vector3.up;
+            _startPosition = transform.position;
+        }
+
+        private void OnEnable()
+        {
+            controls.Player.Enable();
+            controls.Player.Jump.performed += ctx => PerformJump();
+        }
+
+        private void OnDisable()
+        {
+            controls.Player.Jump.performed -= ctx => PerformJump();
+            controls.Player.Disable();
+        }
+
+        private void PerformFail()
+        {
+            _isFailed = true;
             _animator.SetTrigger("LoseEvent");
+            gameObject.GetComponent<IInvoker>().Invoke(); // починить сука сделать привязку к state аниматора - разбить на классы
+            // добавить подкат
         }
-    }
 
-    private void PerformJump()
-    {
-        if (Mathf.Abs(_startPosition.y - transform.position.y) < 0.2)
+        private void PerformJump()
         {
-            _isJumping = true;
-            StartCoroutine(Jump());
+            if (Mathf.Abs(_startPosition.y - transform.position.y) < 0.2)
+            {
+                StartCoroutine(Jump());
+            }
         }
-    }
 
-    private IEnumerator Jump()
-    {
-        var endPosition = _startPosition + _jumpDirection * _distance;
-        float time = 0f;
-        while (time < 1f)
+        private IEnumerator Jump()
         {
-            time += Time.deltaTime / _duration;
-            Vector3 pos = Vector3.Lerp(_startPosition, endPosition, time);
-            float offset = _curve.Evaluate(time);
-            pos += _jumpDirection * offset;
-            transform.position = pos;
-            yield return null;
+            var endPosition = _startPosition + _jumpDirection * _distance;
+            float time = 0f;
+            while (time < 1f)
+            {
+                if (_isFailed)
+                {
+                    break;
+                }
+                time += Time.deltaTime / _duration;
+                Vector3 pos = Vector3.Lerp(_startPosition, endPosition, time);
+                float offset = _curve.Evaluate(time);
+                pos += _jumpDirection * offset;
+                transform.position = pos;
+                yield return null;
+            }
         }
-        _isJumping = false;
     }
 }

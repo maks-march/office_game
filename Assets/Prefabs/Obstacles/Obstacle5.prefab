@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8581419649350973808}
   - component: {fileID: 4643510858175500210}
   - component: {fileID: 8972183858793946195}
-  - component: {fileID: 2413695696944120468}
+  - component: {fileID: 2689736410541706639}
   m_Layer: 3
   m_Name: Obstacle5
   m_TagString: Obstacle
@@ -98,7 +98,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &2413695696944120468
+--- !u!61 &2689736410541706639
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2303141030317652507}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 829908d80a2d3d24dafd04eb5cd03ba4, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -145,7 +145,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33395147, y: -3.1748886}
+  m_Offset: {x: 0.49786007, y: -3.1755161}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -156,5 +156,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.441427, y: 5.142663}
+  m_Size: {x: 5.6640024, y: 5.1789684}
   m_EdgeRadius: 0

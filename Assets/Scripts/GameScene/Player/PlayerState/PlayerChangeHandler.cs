@@ -3,21 +3,20 @@ using Resources;
 using StateChangers;
 using UnityEngine;
 
+
 namespace Invokers
 {
     public class PlayerChangeHandler : ChangeHandler
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private MovingOnEvents _movingOnEvents;
+        [SerializeField] private PlayerStateChanger _playerStateChanger;
         private AnimatorParamsChanger _animatorParamsChanger;
 
-        private PlayerState _currentState;
-
-        public PlayerState currentState { get => _currentState; }
+        public PlayerState currentState { get => _playerStateChanger.GetPlayerState; }
 
         protected override void OnAwake()
         {
-            _currentState = PlayerState.Idle;
             _animatorParamsChanger = new AnimatorParamsChanger(_animator);
         }
 
@@ -27,20 +26,34 @@ namespace Invokers
 
             PlayerState newState = inputInvoker.NewPlayerState;
 
-            if (_currentState == PlayerState.Idle)
+            if (currentState == PlayerState.Idle)
             {
                 newState = PlayerState.Run;
-                _currentState = newState;
+                _playerStateChanger.ChangeState(newState);
                 _animatorParamsChanger.ChangeParams(newState);
                 return;
             }
 
+            if (currentState == PlayerState.Run) 
+            {
+                StartMove(newState);
+                return;
+            }
+
+            if (currentState == PlayerState.Jump && newState == PlayerState.Sliding)
+            {
+                StartMove(newState);
+                return;
+            }
+        }
+
+        private void StartMove(PlayerState newState)
+        {
             bool started = _movingOnEvents.Move(newState);
             if (started)
             {
                 _animatorParamsChanger.ChangeParams(newState);
             }
-
         }
     }
 }

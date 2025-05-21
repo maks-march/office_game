@@ -3,15 +3,18 @@ using Resources;
 using System.Collections;
 using UnityEngine;
 
+
 namespace GameScene
 {
     [RequireComponent(typeof(JumpCollisionCheck))]
+    [RequireComponent(typeof(PlayerStateInvoker))]
     public class Jump : MonoBehaviour, IMovePerformer
     {
         [SerializeField] private AnimationCurve _curve;
         [SerializeField] private float _distance = 4f;
         [SerializeField] private GroundRaycaster _rayCaster;
 
+        private PlayerStateInvoker _playerStateInvoker;
         private Vector3 _jumpDirection = Vector3.up;
         private Vector3 _startPosition;
         private bool _isPlaying = false;
@@ -23,11 +26,13 @@ namespace GameScene
         private void Awake()
         {
             _check = GetComponent<JumpCollisionCheck>();
+            _playerStateInvoker = GetComponent<PlayerStateInvoker>();
         }
 
         public void Stop()
         {
             _isPlaying = false;
+            ChangeState(PlayerState.Run);
             StopCoroutine(Movement());
         }
 
@@ -36,11 +41,17 @@ namespace GameScene
             _startPosition = gameObject.transform.position;
             if (_rayCaster.IsGrounded() && _isPlaying == false)
             {
+                ChangeState(PlayerState.Jump);
                 _isPlaying = true;
                 StartCoroutine(Movement());
             }
         }
 
+        private void ChangeState(PlayerState newState)
+        {
+            _playerStateInvoker.ChangeInvokeState(newState);
+            _playerStateInvoker.Invoke();
+        }
 
         private IEnumerator Movement()
         {
@@ -59,7 +70,7 @@ namespace GameScene
                 transform.position = newPosition;
                 yield return null;
             }
-            _isPlaying = false;
+            Stop();
         }
     }
 }

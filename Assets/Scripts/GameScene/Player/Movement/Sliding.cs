@@ -6,11 +6,13 @@ using UnityEngine;
 namespace GameScene
 {
     [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(PlayerStateInvoker))]
     public class Sliding : MonoBehaviour, IMovePerformer
     {
         [SerializeField] private CapsuleCollider2D _collider;
         [SerializeField] private float _duration = 0.5f;
 
+        private PlayerStateInvoker _playerStateInvoker;
         private float _baseOffset;
         private float _baseHeight;
         private bool _isPlaying = false;
@@ -22,23 +24,33 @@ namespace GameScene
         {
             _baseOffset = _collider.offset.y;
             _baseHeight = _collider.size.y;
+            _playerStateInvoker = GetComponent<PlayerStateInvoker>();
         }
 
         public void Stop()
         {
             _isPlaying = false;
+            ChangeState(PlayerState.Run);
             StopCoroutine(Movement());
-            End();
+            RestartPosition();
         }
 
         public void PerformMovement()
         {
             if (_isPlaying == false)
             {
+                ChangeState(PlayerState.Sliding);
                 _isPlaying = true;
                 StartCoroutine(Movement());
             }
         }
+
+        private void ChangeState(PlayerState newState)
+        {
+            _playerStateInvoker.ChangeInvokeState(newState);
+            _playerStateInvoker.Invoke();
+        }
+
         private IEnumerator Movement()
         {
             float newOffset = _baseOffset / 3;
@@ -51,12 +63,10 @@ namespace GameScene
                 time += Time.deltaTime / _duration;
                 yield return null;
             }
-            End();
-
-            _isPlaying = false;
+            Stop();
         }
 
-        private void End()
+        private void RestartPosition()
         {
             _collider.offset = new Vector2(_collider.offset.x, _baseOffset);
             _collider.size = new Vector2(_collider.size.x, _baseHeight);

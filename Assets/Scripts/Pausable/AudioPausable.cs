@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-namespace Pausing
+namespace Pausable
 {
     public class AudioPausable : MonoBehaviour, IPausable
     {

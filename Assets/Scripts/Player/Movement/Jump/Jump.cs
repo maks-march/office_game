@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.GameScene.Player;
-using Resources;
+﻿using Resources;
 using System.Collections;
 using UnityEngine;
+using Invokers;
 
 
-namespace GameScene
+namespace Movement
 {
     [RequireComponent(typeof(JumpCollisionCheck))]
     [RequireComponent(typeof(PlayerStateInvoker))]

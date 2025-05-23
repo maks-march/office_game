@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-namespace GameScene
+
+namespace Movement
 {
     [RequireComponent(typeof(Collider2D))]
     public class JumpCollisionCheck : MonoBehaviour

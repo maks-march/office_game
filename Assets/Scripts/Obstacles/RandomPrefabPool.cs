@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace GameScene
+namespace Obstacles
 {
     public class RandomPrefabPool : MonoBehaviour
     {

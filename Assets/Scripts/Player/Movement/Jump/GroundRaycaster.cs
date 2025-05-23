@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.GameScene.Player
+
+namespace Movement
 {
     public class GroundRaycaster : MonoBehaviour
     {

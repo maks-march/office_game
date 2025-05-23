@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
-using Pausing;
+using Pausable;
+using Invokers;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-namespace Invokers
+
+namespace ChangeHandlers
 {
     [RequireComponent(typeof(InputPauseInvoker))]
     public class PauseChangeHandler : ChangeHandler

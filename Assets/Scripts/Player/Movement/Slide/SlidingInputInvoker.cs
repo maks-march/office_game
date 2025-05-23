@@ -1,7 +1,8 @@
 ﻿using Resources;
+using Invokers;
 
 
-namespace Invokers
+namespace Movement
 {
     public class SlidingInputInvoker : MoveInputInvoker 
     {

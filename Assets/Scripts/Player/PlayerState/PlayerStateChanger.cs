@@ -2,7 +2,7 @@
 using Resources;
 
 
-namespace GameScene
+namespace ChangeHandlers
 {
     public class PlayerStateChanger : ChangeHandler
     {

@@ -1,9 +1,10 @@
 ﻿using Resources;
 using System.Collections;
 using UnityEngine;
+using Invokers;
 
 
-namespace GameScene
+namespace Movement
 {
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(PlayerStateInvoker))]

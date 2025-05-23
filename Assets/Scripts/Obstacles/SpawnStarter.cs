@@ -1,7 +1,9 @@
 ﻿using Invokers;
 using UnityEngine;
+using Obstacles;
 
-namespace GameScene
+
+namespace ChangeHandlers
 {
     [RequireComponent(typeof(SpawnObstacle))]
     public class SpawnStarter : ChangeHandler

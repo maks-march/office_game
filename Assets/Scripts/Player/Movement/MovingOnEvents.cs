@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace GameScene
+namespace Movement
 {
     [RequireComponent(typeof(Jump))]
     [RequireComponent(typeof(Sliding))]

@@ -3,7 +3,7 @@ using Resources;
 using UnityEngine;
 
 
-namespace GameScene
+namespace Obstacles
 {
     public class ReturnObstacle : MonoBehaviour
     {

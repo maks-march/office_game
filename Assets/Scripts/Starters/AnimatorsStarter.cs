@@ -1,9 +1,10 @@
 using Resources;
 using System.Collections.Generic;
 using UnityEngine;
+using Invokers;
 
 
-namespace Invokers
+namespace ChangeHandlers
 {
     public class AnimatorsStarter : ChangeHandler
     {

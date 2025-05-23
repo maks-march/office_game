@@ -1,10 +1,11 @@
-﻿using GameScene;
-using Resources;
+﻿using Resources;
 using StateChangers;
 using UnityEngine;
+using Movement;
+using Invokers;
 
 
-namespace Invokers
+namespace ChangeHandlers
 {
     public class PlayerChangeHandler : ChangeHandler
     {

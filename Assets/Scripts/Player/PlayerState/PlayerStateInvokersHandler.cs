@@ -1,7 +1,7 @@
-﻿using Invokers;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace GameScene
+
+namespace Invokers
 {
     public class PlayerStateInvokersHandler : InvokersHandler
     {

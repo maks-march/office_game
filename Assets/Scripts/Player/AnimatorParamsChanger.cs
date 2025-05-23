@@ -1,6 +1,7 @@
 ﻿using Resources;
 using UnityEngine;
 
+
 namespace StateChangers
 {
     public class AnimatorParamsChanger : IStateChanger

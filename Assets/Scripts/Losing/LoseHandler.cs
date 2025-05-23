@@ -2,7 +2,7 @@ using UnityEngine;
 using Invokers;
 
 
-namespace GameScene
+namespace ChangeHandlers
 {
     public class LoseChangeHandler : ChangeHandler
     {

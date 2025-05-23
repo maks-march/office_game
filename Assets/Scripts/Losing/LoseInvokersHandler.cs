@@ -1,8 +1,7 @@
-using Invokers;
 using System.Collections.Generic;
 
 
-namespace GameScene
+namespace Invokers
 {
     public class LoseInvokersHandler : InvokersHandler
     {

@@ -1,7 +1,4 @@
-using Invokers;
-
-
-namespace GameScene
+namespace Invokers
 {
     public class LoseInvoker : PauseInvoker { }
 }

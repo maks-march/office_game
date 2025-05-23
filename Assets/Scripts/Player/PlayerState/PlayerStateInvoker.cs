@@ -1,8 +1,7 @@
-﻿using Invokers;
-using Resources;
-using UnityEngine;
+﻿using Resources;
 
-namespace GameScene
+
+namespace Invokers
 {
     public class PlayerStateInvoker : Invoker
     {

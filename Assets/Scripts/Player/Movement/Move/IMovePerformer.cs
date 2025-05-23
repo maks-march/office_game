@@ -1,7 +1,7 @@
 ﻿using Resources;
 
 
-namespace GameScene
+namespace Movement
 {
     public interface IMovePerformer
     {

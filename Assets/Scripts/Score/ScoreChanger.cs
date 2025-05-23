@@ -1,7 +1,9 @@
 using TMPro;
 using UnityEngine;
+using Invokers;
 
-namespace Invokers
+
+namespace ChangeHandlers
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class ScoreChanger : ChangeHandler

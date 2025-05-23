@@ -1,4 +1,4 @@
-﻿namespace Pausing
+﻿namespace Pausable
 {
     public interface IPausable
     {

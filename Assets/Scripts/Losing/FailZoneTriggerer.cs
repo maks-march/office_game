@@ -1,7 +1,8 @@
 using Invokers;
 using UnityEngine;
 
-namespace GameScene
+
+namespace Losing
 {
     [RequireComponent (typeof (Collider2D))]
     public class FailZoneTriggerer : MonoBehaviour

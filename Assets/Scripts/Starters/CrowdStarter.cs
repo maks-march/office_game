@@ -1,7 +1,8 @@
 ﻿using Invokers;
 using UnityEngine;
 
-namespace GameScene
+
+namespace ChangeHandlers
 {
     public class CrowdStarter : AnimatorsStarter
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace Invokers
+namespace ChangeHandlers
 {
     public class BackgroundStarter : AnimatorsStarter
     {

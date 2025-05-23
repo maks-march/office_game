@@ -9,6 +9,7 @@ namespace Resources
         public const SceneName SceneBaseName = SceneName.Null;
         public const string StartTriggerName = "Start";
         public const string AnimatorLayer = "Base";
+        public const string MixerMusicVolume = "MusicVolume";
 
         public static LayerMask GroundLayer { get => LayerMask.NameToLayer("Objects"); }
     }

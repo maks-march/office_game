@@ -10,10 +10,6 @@ namespace Assets.Scripts.GameScene.Player
         public bool IsGrounded()
         {
             RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, Vector2.down, _rayLength);
-            if (hit.collider != null)
-            {
-                Debug.Log(hit.collider.name);
-            }
             return hit.collider != null;
         }
     }

@@ -7,10 +7,11 @@ namespace GameScene
     public class LoseChangeHandler : ChangeHandler
     {
         [SerializeField] private GameObject _loseMenu;
+        [SerializeField] private PauseChangeHandler _pauseChangeHandler;
 
         protected override void OnEvent(IInvoker invoker)
         {
-            gameObject.transform.root.GetComponentInChildren<PauseChangeHandler>().StopGame();
+            _pauseChangeHandler.StopGame();
             _loseMenu.SetActive(true);
         }
     }

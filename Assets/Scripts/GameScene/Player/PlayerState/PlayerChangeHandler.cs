@@ -34,6 +34,12 @@ namespace Invokers
                 return;
             }
 
+            if (newState == PlayerState.Fail)
+            {
+                _movingOnEvents.Move(newState);
+                _animatorParamsChanger.ChangeParams(newState);
+            }
+
             if (currentState == PlayerState.Run) 
             {
                 StartMove(newState);

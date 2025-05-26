@@ -18,6 +18,7 @@ namespace StateChangers
                 SceneManager.LoadScene(name.ToString());
             }
         }
+
         private void ExitGame()
         {
             Application.Quit();

@@ -18,6 +18,7 @@ namespace ChangeHandlers
         {
             return gameObject.GetComponent<T>();
         }
+
         protected virtual IInvokersHandler GetInvokerHandler()
         {
             return GetInvokerHandler<IInvokersHandler>();

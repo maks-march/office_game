@@ -7,7 +7,7 @@ namespace Invokers
     {
         protected override List<IInvoker> CollectInvokers()
         {
-            return CollectInvokers<FadeoutEndsInvoker>();
+            return CollectInvokers<IntroEndsInvoker>();
         }
     }
 }

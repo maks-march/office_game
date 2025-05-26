@@ -1,5 +1,6 @@
 using Invokers;
 using UnityEngine;
+using Resources;
 
 
 namespace Losing
@@ -9,16 +10,16 @@ namespace Losing
     {
         [SerializeField] private FailInvoker _failInvoker;
 
-        private string _losingFilter;
+        private Tags _losingFilter;
 
         private void Awake()
         {
-            _losingFilter = "Player";
+            _losingFilter = Tags.Player;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!string.IsNullOrEmpty(_losingFilter) && !collision.CompareTag(_losingFilter))
+            if (!string.IsNullOrEmpty(_losingFilter.ToString()) && !collision.CompareTag(_losingFilter.ToString()))
                 return;
 
             _failInvoker.Invoke();
